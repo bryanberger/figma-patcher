@@ -1,5 +1,5 @@
 
-name: Build
+name: build_release
 
 on:
   push:
@@ -13,19 +13,32 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [ubuntu-latest]
 
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
-      - name: Install Node.js and NPM
-        uses: actions/setup-node@v1
-        with:
-          node-version: "14.15.0"
+      - name: Setup Node
+        - uses: actions/setup-node@v2
+          with:
+            node-version: '14.15.0'
+            cache: 'npm'
 
-      - name: Install deps
+      - name: Pkg Cache
+        - uses: actions/cache@v2
+          with:
+            path: ~/.pkg-cache/
+            key: ${{  matrix.os }}-${{ matrix.node-version }}
+
+      - name: Install dependencies
         run: npm install
 
       - name: Build
         run: npm run build
+
+      - name: Upload Artifacts
+        - uses: actions/upload-artifact@v2
+          with:
+            name: releases
+            path: dist/

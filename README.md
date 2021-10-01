@@ -1,5 +1,6 @@
 # Figma Patcher (PoC)
 
+[![Build](https://github.com/bryanberger/figma-patcher/actions/workflows/build.yml/badge.svg)](https://github.com/bryanberger/figma-patcher/actions/workflows/build.yml)
 ## Disclaimer
 
 This is an educational proof-of-concept patcher for Figma. This example allows one to expand the width of the Figma properties panel sidebar (in this case to 350px).

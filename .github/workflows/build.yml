@@ -8,7 +8,7 @@ on:
   pull_request:
 
 jobs:
-  release:
+  build:
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -23,6 +23,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14.15.0"
+
+      - name: Install deps
+        run: npm install
 
       - name: Build
         run: npm run build

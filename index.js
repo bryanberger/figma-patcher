@@ -1,5 +1,6 @@
 const WebSocket = require("ws");
 const fs = require("fs");
+const path = require("path");
 const fetch = require("node-fetch");
 
 const fileListUrl = `http://localhost:9222/json`;
@@ -16,14 +17,13 @@ let payloads = "";
 const sendPayload = (id, client) => client.send(JSON.stringify(payload));
 
 const buildPayloads = () => {
-  const dir = "./payloads/";
+  const dir = path.join(__dirname, "payloads/");
   const filenames = fs.readdirSync(dir);
 
   filenames.forEach((filename) => {
     const payload = fs.readFileSync(dir + filename).toString();
     payloads += payload;
   });
-
 
   // Wrapper for payloads, so they only run once per file/page
   payload.params.expression = `

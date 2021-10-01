@@ -10,20 +10,26 @@ This application does not modify any Figma files, it uses the `Electron / Chromi
 
 Ensure you run Figma.app in remote debug mode like so:
 
+```
 - Close Figma
 - Open your Terminal
 - Type in `open /Applications/Figma.app --args --remote-debugging-port=9222` assuming that is the location of your Figma.app
+```
 
 Figma will now open in `remote debugging mode`.
 
-You can now run this application binary, which will open in a terminal prompt, keep the window open and minimize it, you should be good to go now.
+You can now run this application binary, using the terminal:
+
+```
+- chmod +x figma-patcher-macos
+- ./figma-patcher-macos
+```
 
 > note: This is an unsigned application, you will have to enable it to run in your system preferences on macOS, and allow it on Windows
 
 ## Download Prebuilt Binaries
 
 - [Download for macOS](https://github.com/bryanberger/figma-patcher/releases/download/latest/figma-patcher-macos)
-
 - [Download for Windows](https://github.com/bryanberger/figma-patcher/releases/download/latest/figma-patcher-win.exe)
 
 ## Development

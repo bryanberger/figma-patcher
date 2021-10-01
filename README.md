@@ -20,6 +20,12 @@ You can now run this application binary, which will open in a terminal prompt, k
 
 > note: This is an unsigned application, you will have to enable it to run in your system preferences on macOS, and allow it on Windows
 
+## Download Prebuilt Binaries
+
+- [Download for macOS](https://github.com/bryanberger/figma-patcher/releases/download/latest/figma-patcher-macos)
+
+- [Download for Windows](https://github.com/bryanberger/figma-patcher/releases/download/latest/figma-patcher-win.exe)
+
 ## Development
 
 Install dependencies and start.

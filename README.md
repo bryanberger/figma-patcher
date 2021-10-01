@@ -6,15 +6,13 @@
 This is an educational proof-of-concept patcher for Figma. This example allows one to expand the width of the Figma properties panel sidebar (in this case to 350px).
 This application does not modify any Figma files, it uses the `Electron / Chromium` debugger to inject some javascript and styling into each Figma file/page.
 
-## How to run
+## How to Run
 
 Ensure you run Figma.app in remote debug mode like so:
 
-```
 - Close Figma
 - Open your Terminal
 - Type in `open /Applications/Figma.app --args --remote-debugging-port=9222` assuming that is the location of your Figma.app
-```
 
 Figma will now open in `remote debugging mode`.
 

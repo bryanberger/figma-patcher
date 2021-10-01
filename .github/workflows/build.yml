@@ -8,7 +8,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  build_release:
     runs-on: "ubuntu-latest"
 
     steps:

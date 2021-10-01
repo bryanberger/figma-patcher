@@ -18,6 +18,8 @@ Figma will now open in `remote debugging mode`.
 
 You can now run this application binary, which will open in a terminal prompt, keep the window open and minimize it, you should be good to go now.
 
+| note: This is an unsigned application, you will have to enable it to run in your system preferences on macOS, and allow it on Windows
+
 ## Development
 
 Install dependencies and start.

@@ -1,7 +1,7 @@
 {
   "name": "figma-patcher",
   "version": "1.0.0",
-  "description": "patches figma's sidebar to increase its width",
+  "description": "Patch Figma with custom injected Javascript",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {

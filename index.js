@@ -13,6 +13,7 @@ const payload = {
 
 let fileList;
 let payloads = "";
+let dependencies = '';
 
 const sendPayload = (id, client) => client.send(JSON.stringify(payload));
 
@@ -22,16 +23,21 @@ const buildPayloads = () => {
 
   filenames.forEach((filename) => {
     const payload = fs.readFileSync(dir + filename).toString();
-    payloads += payload;
+
+    // We prefix vendor/dep packages with _ and put them at the top of the bundle
+    if(filename.startsWith('_')) {
+      dependencies += payload;
+    } else {
+      payloads += payload;
+    }
   });
 
   // Wrapper for payloads, so they only run once per file/page
   payload.params.expression = `
     (function () {
         if (typeof window.hasBeenPatched === "undefined") {
-            
+            ${dependencies}
             ${payloads}
-
             window.hasBeenPatched = true;
         }
     })();

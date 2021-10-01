@@ -1,10 +1,13 @@
 # Figma Patcher (PoC)
 
 [![Build](https://github.com/bryanberger/figma-patcher/actions/workflows/build.yml/badge.svg)](https://github.com/bryanberger/figma-patcher/actions/workflows/build.yml)
+
 ## Disclaimer
 
 This is an educational proof-of-concept patcher for Figma. This example allows one to expand the width of the Figma properties panel sidebar.
 This application does not modify any Figma files, it uses the `Electron / Chromium` debugger to inject some javascript and styling into each Figma file/page.
+
+![demo](.github/demo.gif?raw=true)
 
 ## How to Run
 

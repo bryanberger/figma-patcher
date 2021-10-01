@@ -1,0 +1,29 @@
+{
+  "name": "figma-patcher",
+  "version": "1.0.0",
+  "description": "patches figma's sidebar to increase its width",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "pkg ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.5",
+    "ws": "^8.2.2"
+  },
+  "devDependencies": {
+    "pkg": "^5.3.3"
+  },
+  "pkg": {
+    "assets": "payloads/**/*",
+    "scripts": "index.js",
+    "targets": [
+      "node14-macos-x64",
+      "node14-win-x64"
+    ],
+    "outputPath": "dist"
+  }
+}

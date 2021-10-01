@@ -37,8 +37,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          name: releases
-          path: dist/
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "build"
+          files: |
+            dist/figma-patcher-macos
+            dist/figma-patcher-win.exe

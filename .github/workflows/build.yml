@@ -9,11 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    runs-on: "ubuntu-latest"
 
     steps:
       - name: Check out Git repository
@@ -37,12 +33,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Release
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "build"
+          prerelease: false
           files: |
             dist/figma-patcher-macos
             dist/figma-patcher-win.exe

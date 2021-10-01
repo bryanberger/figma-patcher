@@ -17,19 +17,19 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Setup Node
-        - uses: actions/setup-node@v2
-          with:
-            node-version: '14.15.0'
-            cache: 'npm'
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.15.0'
+          cache: 'npm'
 
       - name: Pkg Cache
-        - uses: actions/cache@v2
-          with:
-            path: ~/.pkg-cache/
-            key: ${{  matrix.os }}-${{ matrix.node-version }}
+        uses: actions/cache@v2
+        with:
+          path: ~/.pkg-cache/
+          key: ${{  matrix.os }}-${{ matrix.node-version }}
 
       - name: Install dependencies
         run: npm install
@@ -38,7 +38,7 @@ jobs:
         run: npm run build
 
       - name: Upload Artifacts
-        - uses: actions/upload-artifact@v2
-          with:
-            name: releases
-            path: dist/
+        uses: actions/upload-artifact@v2
+        with:
+          name: releases
+          path: dist/

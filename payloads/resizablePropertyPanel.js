@@ -1,9 +1,9 @@
 (function () {
-  var propertiesPanel = document.querySelector(
-    '[name="propertiesPanelContainer"]'
-  );
+  console.log('resizePropertyPanel');
+  
+  const propertiesPanel = document.querySelector('[class*="properties_panel--drillDownContainer--"]');
 
-  var runPatch = function () {
+  const runPatch = function () {
     try {
       interact(propertiesPanel)
         .resizable({
@@ -12,8 +12,8 @@
 
           listeners: {
             move(event) {
-              var target = event.target;
-              var x = parseFloat(target.getAttribute("data-x")) || 0;
+              const target = event.target;
+              const x = parseFloat(target.getAttribute("data-x")) || 0;
 
               target.style.width = event.rect.width + "px";
             },

@@ -1,11 +1,12 @@
 (function () {
-    var levels = 5;
-    var currentLevel = 0;
-    var propertiesPanel = document.querySelector(
-      '[name="propertiesPanelContainer"]'
-    );
+    console.log('expandPropertyPanel');
+
+    const levels = 5;
+    const currentLevel = 0;
+    const propertiesPanel = document.querySelector('[class*="properties_panel--drillDownContainer--"]');
+    // const propertiesPanel = document.querySelector('[data-onboarding-key="properties-panel"]');
   
-    var walk = function (node) {
+    const walk = function (node) {
       if (typeof node.style !== "undefined") {
         node.style.width = "100%";
       }
@@ -19,9 +20,9 @@
       }
     };
   
-    var runPatch = function () {
+    const runPatch = function () {
       try {
-        var panelRows = propertiesPanel.querySelectorAll(
+        const panelRows = propertiesPanel.querySelectorAll(
           '[class*="raw_components--singleRow--"]'
         );
   
@@ -33,14 +34,18 @@
       } catch (err) {}
     };
   
-    var observer = new MutationObserver(runPatch);
+    const observer = new MutationObserver(runPatch);
   
-    observer.observe(propertiesPanel, {
-      childList: true,
-      subtree: true,
-      attributes: false,
-      characterData: false,
-    });
+    try {
+      observer.observe(propertiesPanel, {
+        childList: true,
+        subtree: true,
+        attributes: false,
+        characterData: false,
+      });
+    } catch (error) {
+      console.error('Error during observe:', error);
+    }
   
     runPatch();
   })();
